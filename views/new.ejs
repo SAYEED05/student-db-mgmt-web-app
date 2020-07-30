@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+<div class="container newform">
+    <div class="row">
+        <div>
+
+            <form class="newform" action="/allstudents" method="POST">
+                <h1>Add New Student</h1>
+                <!-- <input class="form-control" type="string" name="IDNUM" placeholder="Id number"> -->
+                <input class="form-control" type="text" name="NAME" placeholder="name">
+                <input class="form-control" type="date" name="DOB" placeholder="dd-mm-yyyy">
+                <input class="form-control" type="email" name="EMAIL" placeholder="Eg:example@any.com">
+                <input class="form-control" type="tel" name="PHONE" placeholder="Eg:9876543210">
+                <input class="form-control" type="text" name="CLASS" placeholder="class">
+                <input class="form-control" type="text" name="INCHARGE" placeholder="Incharge">
+                <input class="form-control" type="text" name="ADDRESS" placeholder="Address">
+                <input class="form-control" type="text" name="M1" placeholder="MARK1">
+                <input class="form-control" type="text" name="M2" placeholder="MARK2">
+                <input class="form-control" type="text" name="M3" placeholder="MARK3">
+                <input class="form-control" type="text" name="M4" placeholder="MARK4">
+                <input class="form-control" type="text" name="M5" placeholder="MARK5">
+                <input class="form-control" type="text" name="M6" placeholder="MARK6">
+                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                <a href="/allstudents">back</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

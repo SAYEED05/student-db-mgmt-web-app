@@ -1,0 +1,74 @@
+<%- include('partials/header'); -%>
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>All Students Information</h1>
+            <P>Here Is The List Of All Students</P>
+            <p>
+                <a class="btn btn-primary btn-group-lg" href="/allstudents/new">Add New Student</a>
+            </p>
+        </div>
+    </header>
+
+    <div class="tablemod">
+        <table class="table">
+
+            <thead class="thead-dark">
+                <tr>
+                    <!-- <th scope="col">NUM</th> -->
+                    <th scope="col">NAME</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">PHONE</th>
+                    <th scope="col">CLASS</th>
+                    <th scope="col">INCHARGE</th>
+                    <th scope="col">ADDRESS</th>
+                    <th scope="col">M1</th>
+                    <th scope="col">M2</th>
+                    <th scope="col">M3</th>
+                    <th scope="col">M4</th>
+                    <th scope="col">M5</th>
+                    <th scope="col">M6</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allstudents.forEach(function(allstudent){ %>
+                <tr>
+                    <!-- <th scope="row"><%= allstudent.NUM %></th> -->
+                    <td scope="row"><%= allstudent.NAME %></td>
+                    <td scope="row"><%= allstudent.DOB %></td>
+                    <td scope="row"><%= allstudent.EMAIL %></td>
+                    <td scope="row"><%= allstudent.PHONE %></td>
+                    <td scope="row"><%= allstudent.CLASS %></td>
+                    <td scope="row"><%= allstudent.INCHARGE %></td>
+                    <td scope="row"><%= allstudent.ADDRESS %></td>
+                    <td scope="row"><%= allstudent.M1 %></td>
+                    <td scope="row"><%= allstudent.M2 %></td>
+                    <td scope="row"><%= allstudent.M3 %></td>
+                    <td scope="row"><%= allstudent.M4 %></td>
+                    <td scope="row"><%= allstudent.M5 %></td>
+                    <td scope="row"><%= allstudent.M6 %></td>
+                    <div class="button">
+                        <td>
+                            <form class="formbutton" action="/allstudents/<%= allstudent.id %>/edit" method="GET">
+                                <button class="btn  btn-warning">Edit</button>
+                            </form>
+
+                        </td>
+                        <td scope="row">
+                            <form class="formbutton" action="/allstudents/<%=allstudent.id%>?_method=DELETE"
+                                method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+
+                        </td>
+                    </div>
+
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('partials/footer'); -%>

@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+<div class="container newform">
+    <div class="row">
+        <div>
+
+            <form action="/allstudents/<%= student.id %>?_method=PUT" method="POST">
+                <h1>Edit <%= student.NAME %>'s Information</h1>
+                <!-- <input class="form-control" type="string" name="IDNUM" placeholder="Id number"> -->
+                <input class="form-control" type="text" name="stuinfo[NAME]" value="<%=student.NAME %>">
+                <input class="form-control" type="date" name="stuinfo[DOB]" value="<%=student.DOB  %>">
+                <input class="form-control" type="email" name="stuinfo[EMAIL]" value="<%=student.EMAIL  %>">
+                <input class="form-control" type="tel" name="stuinfo[PHONE]" value="<%=student.PHONE  %>">
+                <input class="form-control" type="text" name="stuinfo[CLASS]" value="<%=student.CLASS  %>">
+                <input class="form-control" type="text" name="stuinfo[INCHARGE]" value="<%=student.INCHARGE  %>">
+                <input class="form-control" type="text" name="stuinfo[ADDRESS]" value="<%=student.ADDRESS  %>">
+                <input class="form-control" type="text" name="stuinfo[M1]" value="<%=student.M1  %>">
+                <input class="form-control" type="text" name="stuinfo[M2]" value="<%=student.M2  %>">
+                <input class="form-control" type="text" name="stuinfo[M3]" value="<%=student.M3  %>">
+                <input class="form-control" type="text" name="stuinfo[M4]" value="<%=student.M4  %>">
+                <input class="form-control" type="text" name="stuinfo[M5]" value="<%=student.M5  %>">
+                <input class="form-control" type="text" name="stuinfo[M6]" value="<%=student.M6  %>">
+                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                <a href="/allstudents">back</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>
