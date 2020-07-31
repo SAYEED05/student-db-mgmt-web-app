@@ -7,12 +7,11 @@ var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var User = require("./models/user");
 
-	 mongoose.connect("mongodb://localhost/studentdb", {
+mongoose.connect("mongodb://localhost/studentdb", {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
 	useFindAndModify: true,
-}); 
-
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');

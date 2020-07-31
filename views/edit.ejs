@@ -1,31 +1,82 @@
-<%- include('partials/header'); -%>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Student Record</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/stylesheets/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/regular.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/Styles.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">SDBM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <%if(!currentUser){%>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <%} else {%>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Welcome, <%= currentUser.username %> !</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="logout">Logout</a>
+                </li>
+            </ul>
+            <%}%>
+
+
+        </div>
+    </nav>
 
 <div class="container newform">
     <div class="row">
         <div>
 
             <form action="/allstudents/<%= student.id %>?_method=PUT" method="POST">
-                <h1>Edit <%= student.NAME %>'s Information</h1>
-                <!-- <input class="form-control" type="string" name="IDNUM" placeholder="Id number"> -->
-                <input class="form-control" type="text" name="stuinfo[NAME]" value="<%=student.NAME %>">
-                <input class="form-control" type="date" name="stuinfo[DOB]" value="<%=student.DOB  %>">
-                <input class="form-control" type="email" name="stuinfo[EMAIL]" value="<%=student.EMAIL  %>">
-                <input class="form-control" type="tel" name="stuinfo[PHONE]" value="<%=student.PHONE  %>">
-                <input class="form-control" type="text" name="stuinfo[CLASS]" value="<%=student.CLASS  %>">
-                <input class="form-control" type="text" name="stuinfo[INCHARGE]" value="<%=student.INCHARGE  %>">
-                <input class="form-control" type="text" name="stuinfo[ADDRESS]" value="<%=student.ADDRESS  %>">
-                <input class="form-control" type="text" name="stuinfo[M1]" value="<%=student.M1  %>">
-                <input class="form-control" type="text" name="stuinfo[M2]" value="<%=student.M2  %>">
-                <input class="form-control" type="text" name="stuinfo[M3]" value="<%=student.M3  %>">
-                <input class="form-control" type="text" name="stuinfo[M4]" value="<%=student.M4  %>">
-                <input class="form-control" type="text" name="stuinfo[M5]" value="<%=student.M5  %>">
-                <input class="form-control" type="text" name="stuinfo[M6]" value="<%=student.M6  %>">
-                <button class="btn btn-lg btn-primary btn-block">Submit</button>
-                <a href="/allstudents">back</a>
+            <h1>Edit <%= student.NAME %>'s Information</h1>
+            <!-- <input class="form-control" type="string" name="IDNUM" placeholder="Id number"> -->
+            <input class="form-control" type="text" name="stuinfo[NAME]" value="<%=student.NAME %>">
+            <input class="form-control" type="date" name="stuinfo[DOB]" value="<%=student.DOB  %>">
+            <input class="form-control" type="email" name="stuinfo[EMAIL]" value="<%=student.EMAIL  %>">
+            <input class="form-control" type="tel" name="stuinfo[PHONE]" value="<%=student.PHONE  %>">
+            <input class="form-control" type="text" name="stuinfo[CLASS]" value="<%=student.CLASS  %>">
+            <input class="form-control" type="text" name="stuinfo[INCHARGE]" value="<%=student.INCHARGE  %>">
+            <input class="form-control" type="text" name="stuinfo[ADDRESS]" value="<%=student.ADDRESS  %>">
+            <input class="form-control" type="text" name="stuinfo[M1]" value="<%=student.M1  %>">
+            <input class="form-control" type="text" name="stuinfo[M2]" value="<%=student.M2  %>">
+            <input class="form-control" type="text" name="stuinfo[M3]" value="<%=student.M3  %>">
+            <input class="form-control" type="text" name="stuinfo[M4]" value="<%=student.M4  %>">
+            <input class="form-control" type="text" name="stuinfo[M5]" value="<%=student.M5  %>">
+            <input class="form-control" type="text" name="stuinfo[M6]" value="<%=student.M6  %>">
+            <button class="btn btn-lg btn-primary btn-block">Submit</button>
+            <a href="/allstudents">back</a>
             </form>
 
         </div>
-    </div>
-</div>
+        </div>
+        </div>
 
-<%- include('partials/footer'); -%>
+        <%- include('partials/footer'); -%>
