@@ -7,11 +7,19 @@ var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var User = require("./models/user");
 
-mongoose.connect("mongodb://localhost/studentdb", {
+//mongodb + srv://test1:bluesky6048@cluster0.og4ps.mongodb.net/studentdb?retryWrites=true&w=majority
+
+mongoose.connect("mongodb+srv://test1:bluesky6048@cluster0.og4ps.mongodb.net/studentdb?retryWrites=true&w=majority", {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
 	useFindAndModify: true,
 });
+
+/* mongoose.connect("mongodb://localhost/studentdb", {
+	useUnifiedTopology: true,
+	useNewUrlParser: true,
+	useFindAndModify: true,
+}); */
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
