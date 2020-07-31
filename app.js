@@ -202,7 +202,12 @@ function isLoggedIn(req, res, next) {
 }
 
 
-app.listen(3001, 'localhost', function () {
+/* app.listen(3001, 'localhost', function () {
 	console.log('server started');
 });
+ */
 
+var port_number = app.listen(process.env.PORT || 3000);
+app.listen(port_number, function () {
+	console.log('server started');
+});
