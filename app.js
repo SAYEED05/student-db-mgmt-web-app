@@ -87,14 +87,28 @@ app.get("/logout", function (req, res) {
 
 
 app.get('/allstudents', isLoggedIn, function (req, res) {
-	//get all students from db
-	student.find({}, function (err, allstudents) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.render('allstudents', { allstudents: allstudents });
-		}
-	});
+
+	if (req.query.search) {
+		//get info that matches search query
+		var regex = new RegExp(escapeRegex(req.query.search), 'gi');
+		student.find({ NAME: regex }, function (err, allstudents) {
+			if (err) {
+				console.log(err);
+			} else {
+				res.render('allstudents', { allstudents: allstudents });
+			}
+		});
+
+	} else {
+		//get all students from db
+		student.find({}, function (err, allstudents) {
+			if (err) {
+				console.log(err);
+			} else {
+				res.render('allstudents', { allstudents: allstudents });
+			}
+		});
+	}
 
 });
 
@@ -178,6 +192,17 @@ app.get("/allstudents/:id/edit", function (req, res) {
 	});
 });
 
+//student profile
+app.get("/allstudents/:id/profile", function (req, res) {
+	student.findById(req.params.id, function (err, foundstudent) {
+		if (err) {
+			res.redirect("/allstudents")
+		} else {
+			res.render("profile", { student: foundstudent });
+		}
+	});
+});
+
 //UPDATE ROUTE
 
 app.put("/allstudents/:id", function (req, res) {
@@ -200,6 +225,12 @@ function isLoggedIn(req, res, next) {
 	}
 	res.redirect("/");
 }
+
+
+//regex for search function
+function escapeRegex(text) {
+	return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 
 /* app.listen(3001, 'localhost', function () {

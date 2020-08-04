@@ -7,11 +7,23 @@
             <p>
                 <a class="btn btn-primary btn-group-lg" href="/allstudents/new">Add New Student</a>
             </p>
+            <p>
+            <form action="/allstudents" method="get" class="form-inline searchform">
+                <div>
+                    <input type="text" name="search" placeholder="student search" class="form-control">
+                    <input type="submit" value="search" class="btn btn-primary ">
+                </div>
+            </form>
+            </p>
+
         </div>
     </header>
 
     <div class="tablemod">
-        <table class="table">
+        <button class="btn btn-primary" id="pdf">Pdf</button>
+        <button class="btn btn-primary" id="csv">CSV</button>
+
+        <table id="tableinfo" class="table">
 
             <thead class="thead-dark">
                 <tr>
@@ -29,15 +41,18 @@
                     <th scope="col">M4</th>
                     <th scope="col">M5</th>
                     <th scope="col">M6</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th class="actbutton" scope="col"></th>
+                    <th class="actbutton" scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <% allstudents.forEach(function(allstudent){ %>
                 <tr>
                     <!-- <th scope="row"><%= allstudent.NUM %></th> -->
-                    <td scope="row"><%= allstudent.NAME %></td>
+                    <td scope="row">
+                        <form class="formbutton" action="/allstudents/<%= allstudent.id %>/profile" method="GET"><a
+                                href="/allstudents/<%= allstudent.id %>/profile"><%= allstudent.NAME %></a></form>
+                    </td>
                     <td scope="row"><%= allstudent.DOB %></td>
                     <td scope="row"><%= allstudent.EMAIL %></td>
                     <td scope="row"><%= allstudent.PHONE %></td>
@@ -51,13 +66,13 @@
                     <td scope="row"><%= allstudent.M5 %></td>
                     <td scope="row"><%= allstudent.M6 %></td>
                     <div class="button">
-                        <td>
+                        <td class="actbutton">
                             <form class="formbutton" action="/allstudents/<%= allstudent.id %>/edit" method="GET">
                                 <button class="btn  btn-warning">Edit</button>
                             </form>
 
                         </td>
-                        <td scope="row">
+                        <td class="actbutton" scope="row">
                             <form class="formbutton" action="/allstudents/<%=allstudent.id%>?_method=DELETE"
                                 method="POST">
                                 <button class="btn btn-danger">Delete</button>

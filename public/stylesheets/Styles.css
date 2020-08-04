@@ -87,3 +87,21 @@ h1 {
 	border-radius: 5px;
 	margin-bottom: 5px;
 }
+.searchform,.stuprofile {
+	border: none;
+	margin-top: 9px;
+	padding: 0px;
+}
+
+#pdf , #csv {
+	margin-bottom: 10px;
+}
+
+.user{
+	position: relative;
+}
+
+#studentprofile {
+	position: relative;
+	margin-top: 100px;
+}
