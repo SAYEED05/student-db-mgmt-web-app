@@ -50,50 +50,64 @@
 
         </div>
     </nav>
-<div class="container">
-    <div class="tablemod">
-        <table id="studentprofile" class="table">
-
-            <thead class="thead-dark">
-                <tr>
-                    <!-- <th scope="col">NUM</th> -->
-                    <th scope="col">NAME</th>
-                    <th scope="col">DOB</th>
-                    <th scope="col">EMAIL</th>
-                    <th scope="col">PHONE</th>
-                    <th scope="col">CLASS</th>
-                    <th scope="col">INCHARGE</th>
-                    <th scope="col">ADDRESS</th>
-                    <th scope="col">M1</th>
-                    <th scope="col">M2</th>
-                    <th scope="col">M3</th>
-                    <th scope="col">M4</th>
-                    <th scope="col">M5</th>
-                    <th scope="col">M6</th>
-                    <th class="actbutton" scope="col"></th>
-                    <th class="actbutton" scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <!-- <th scope="row"><%= student.NUM %></th> -->
-            <td scope="row"> <%= student.NAME %> </td>
-            <td scope="row"><%= student.DOB %></td>
-            <td scope="row"><%= student.EMAIL %></td>
-            <td scope="row"><%= student.PHONE %></td>
-            <td scope="row"><%= student.CLASS %></td>
-            <td scope="row"><%= student.INCHARGE %></td>
-            <td scope="row"><%= student.ADDRESS %></td>
-            <td scope="row"><%= student.M1 %></td>
-            <td scope="row"><%= student.M2 %></td>
-            <td scope="row"><%= student.M3 %></td>
-            <td scope="row"><%= student.M4 %></td>
-            <td scope="row"><%= student.M5 %></td>
-            <td scope="row"><%= student.M6 %></td>
-            <td scope="row"><button class="btn btn-warning" id="stupdf">Pdf</button></td>
-            <td scope="row"><button class="btn btn-info" id="stucsv">CSV</button></td>
-            </tr>
-            </tbody>
-            </table>
+    <div class="container">
+        <% if(error && error.length > 0) {%>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+            <% if(success && success.length >0) {%>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
         </div>
-        <%- include('partials/footer'); -%>
+
+
+        <div class="container">
+            <div class="tablemod">
+                <table id="studentprofile" class="table">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <!-- <th scope="col">NUM</th> -->
+                            <th scope="col">NAME</th>
+                            <th scope="col">DOB</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">PHONE</th>
+                            <th scope="col">CLASS</th>
+                            <th scope="col">INCHARGE</th>
+                            <th scope="col">ADDRESS</th>
+                            <th scope="col">M1</th>
+                            <th scope="col">M2</th>
+                            <th scope="col">M3</th>
+                            <th scope="col">M4</th>
+                            <th scope="col">M5</th>
+                            <th scope="col">M6</th>
+                            <th class="actbutton" scope="col"></th>
+                            <th class="actbutton" scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <th scope="row"><%= student.NUM %></th> -->
+                            <td scope="row"> <%= student.NAME %> </td>
+                            <td scope="row"><%= student.DOB %></td>
+                            <td scope="row"><%= student.EMAIL %></td>
+                            <td scope="row"><%= student.PHONE %></td>
+                            <td scope="row"><%= student.CLASS %></td>
+                            <td scope="row"><%= student.INCHARGE %></td>
+                            <td scope="row"><%= student.ADDRESS %></td>
+                            <td scope="row"><%= student.M1 %></td>
+                            <td scope="row"><%= student.M2 %></td>
+                            <td scope="row"><%= student.M3 %></td>
+                            <td scope="row"><%= student.M4 %></td>
+                            <td scope="row"><%= student.M5 %></td>
+                            <td scope="row"><%= student.M6 %></td>
+                            <td scope="row"><button class="btn btn-warning" id="stupdf">Pdf</button></td>
+                            <td scope="row"><button class="btn btn-info" id="stucsv">CSV</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <%- include('partials/footer'); -%>
