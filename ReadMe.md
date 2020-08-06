@@ -4,6 +4,13 @@
    APP NAME: student Database management system(SDBM).
    --------
 
+   UPDATE:
+   -------
+   			v1.2- added authorization and flash messages.
+   			----
+ 			v1.1- added search function and download function.
+ 			----
+
    Version: 1.0.
    -------
 
