@@ -7,23 +7,22 @@
             <p>
                 <a class="btn btn-primary btn-group-lg" href="/allstudents/new">Add New Student</a>
             </p>
-            <p>
-            <form action="/allstudents" method="get" class="form-inline searchform">
-                <div>
+
+            <form action="/allstudents" method="get" class="form-inline searchform formstyle">
+                <div class="searchform">
                     <input type="text" name="search" placeholder="student search" class="form-control">
                     <input type="submit" value="search" class="btn btn-primary ">
                 </div>
             </form>
-            </p>
+
 
         </div>
     </header>
 
-    <div class="tablemod">
-        <button class="btn btn-primary" id="pdf">Pdf</button>
-        <button class="btn btn-primary" id="csv">CSV</button>
-
-        <table id="tableinfo" class="table">
+    <button class="btn btn-primary" id="pdf">Pdf</button>
+    <button class="btn btn-primary" id="csv">CSV</button>
+    <div class="table-responsive">
+        <table id="tableinfo" class="table .w-auto">
 
             <thead class="thead-dark">
                 <tr>
@@ -93,4 +92,5 @@
             </tbody>
         </table>
     </div>
+
     <%- include('partials/footer'); -%>

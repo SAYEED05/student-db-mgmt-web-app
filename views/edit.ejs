@@ -68,7 +68,7 @@
             <div class="row">
                 <div>
 
-                    <form action="/allstudents/<%= student.id %>?_method=PUT" method="POST">
+                    <form class="newform" action="/allstudents/<%= student.id %>?_method=PUT" method="POST">
                         <h1>Edit <%= student.NAME %>'s Information</h1>
                         <!-- <input class="form-control" type="string" name="IDNUM" placeholder="Id number"> -->
                         <input class="form-control" type="text" name="stuinfo[NAME]" value="<%=student.NAME %>">

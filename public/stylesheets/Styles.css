@@ -63,6 +63,7 @@ table,td,th {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	box-sizing: border-box;
+	max-height: 70vh;
 }
 
 .newform input {
@@ -70,11 +71,7 @@ table,td,th {
 	border-radius: 12px;
 }
 
-.tablemod {
-	position: relative;
-	width: 100%;
-	align-items: center;
-}
+
 
 h1 {
 	border-bottom: 2px solid white;
@@ -105,4 +102,24 @@ h1 {
 	position: relative;
 	margin-top: 100px;
 }
+
+.searchform {
+	
+	display: block;
+	position: inherit;
+	margin-left: 40%;
+	margin-top: 60px;
+	text-align: center;
+}
+
+
+@media(min-width:800px) {
+	
+		.table-responsive {
+			overflow-x: visible; 
+		}
+	
+}
+
+
 
