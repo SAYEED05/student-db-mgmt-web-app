@@ -4,9 +4,7 @@
         <div class="container">
             <h1>All Students Information</h1>
             <P>Here Is The List Of All Students</P>
-            <p>
-                <a class="btn btn-primary btn-group-lg" href="/allstudents/new">Add New Student</a>
-            </p>
+
 
             <form action="/allstudents" method="get" class="form-inline searchform formstyle">
                 <div class="searchform">
@@ -19,11 +17,10 @@
         </div>
     </header>
 
-    <button class="btn btn-primary" id="pdf">Pdf</button>
-    <button class="btn btn-primary" id="csv">CSV</button>
-    <div class="table-responsive">
-        <table id="tableinfo" class="table .w-auto">
 
+    <div class="table-responsive">
+        <table id="tableinfo" class="table w-auto">
+            <p><a id="tran" class="btn btn-primary btn-sm " href="#">Change alignment</a></p>
             <thead class="thead-dark">
                 <tr>
                     <!-- <th scope="col">NUM</th> -->
@@ -41,8 +38,8 @@
                     <th scope="col">M5</th>
                     <th scope="col">M6</th>
                     <%if(currentUser && currentUser.isAdmin) { %>
-                    <th class="actbutton" scope="col"></th>
-                    <th class="actbutton" scope="col"></th>
+                    <th class="actbutton" scope="col">EDIT</th>
+                    <th class="actbutton" scope="col">DELETE</th>
                     <% } %>
                 </tr>
             </thead>
@@ -66,6 +63,7 @@
                     <td scope="row"><%= allstudent.M4 %></td>
                     <td scope="row"><%= allstudent.M5 %></td>
                     <td scope="row"><%= allstudent.M6 %></td>
+
                     <div class="button">
 
                         <%if(currentUser && currentUser.isAdmin) { %>
@@ -89,8 +87,18 @@
 
                 </tr>
                 <% }); %>
+
             </tbody>
         </table>
+        <div class="addnew">
+            <a class="btn btn-info btn-group-lg" href="/allstudents/new">Add New Student</a>
+        </div>
+        <div class="downloadall">
+
+            <button class="btn btn-primary" id="pdf">Download As Pdf</button>
+            <button class="btn btn-primary" id="csv">Download As CSV</button>
+        </div>
+
     </div>
 
     <%- include('partials/footer'); -%>
